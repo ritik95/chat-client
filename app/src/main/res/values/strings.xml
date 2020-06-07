@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Chit-Chat</string>
+    <string name="btn_join">JOIN</string>
+    <string name="enter_name">Enter Name</string>
+</resources>
