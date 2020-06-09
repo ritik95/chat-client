@@ -2,4 +2,18 @@
     <string name="app_name">Chit-Chat</string>
     <string name="btn_join">JOIN</string>
     <string name="enter_name">Enter Name</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_verification_code">Verification Code</string>
+    <string name="desc_firebase_lockup">Firebase logo and name</string>
+    <string name="phone_title_text">Phone Number</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>
