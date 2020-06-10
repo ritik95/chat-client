@@ -35,7 +35,6 @@ public class NameActivity extends AppCompatActivity {
         userPassword = findViewById(R.id.password);
         buttonSignUp = findViewById(R.id.sign_up);
         mAuth = FirebaseAuth.getInstance();
-        //getActionBar().hide();
 
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

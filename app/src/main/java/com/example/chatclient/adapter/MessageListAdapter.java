@@ -77,7 +77,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         Message message = messageList.get(position);
         //TODO : update this code for generic
         if(Constants.MESSAGE.equalsIgnoreCase(message.getFlag())){
-            if(MyUserDetails.getInstance().getUserName().equalsIgnoreCase(message.getSender().getName())){
+            if(MyUserDetails.getInstance().getUserName().equalsIgnoreCase(message.getSender().getUserName())){
                 return Constants.VIEW_TYPE_MESSAGE_SENT;
             }else {
                 return Constants.VIEW_TYPE_MESSAGE_RECEIVED;

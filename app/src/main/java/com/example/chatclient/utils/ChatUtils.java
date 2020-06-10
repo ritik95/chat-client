@@ -21,7 +21,7 @@ public class ChatUtils {
         message.setCreatedAt(System.currentTimeMillis());
         message.setMessage(msg);
         Message.User sender = new Message.User();
-        sender.setName(user);
+        sender.setUserName(user);
         message.setSender(sender);
         return message;
     }

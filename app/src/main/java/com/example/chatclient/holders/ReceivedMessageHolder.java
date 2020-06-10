@@ -27,9 +27,10 @@ public class ReceivedMessageHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Message message){
+        System.out.println("converted "+message);
         messageText.setText(message.getMessage());
         timeText.setText(Utils.getFormattedTime(message.getCreatedAt()));
-        nameText.setText(message.getSender().getName());
+        nameText.setText(message.getSender().getUserName());
 
         //TODO : add code for display image
         //Implement here

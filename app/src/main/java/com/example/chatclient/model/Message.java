@@ -28,8 +28,8 @@ public class Message {
     @NoArgsConstructor
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class User{
-        @JsonProperty("name")
-        private String name;
+        @JsonProperty("userName")
+        private String userName;
 
         @JsonProperty("profileUrl")
         private String profileUrl;

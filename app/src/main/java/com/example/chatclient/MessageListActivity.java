@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -15,9 +16,10 @@ import android.widget.EditText;
 import com.example.chatclient.config.MyUserDetails;
 import com.example.chatclient.model.Message;
 import com.example.chatclient.utils.ChatUtils;
-import com.example.chatclient.R;
 import com.example.chatclient.adapter.MessageListAdapter;
 import com.example.chatclient.config.ChatAppConfig;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.neovisionaries.ws.client.WebSocket;
 import com.neovisionaries.ws.client.WebSocketAdapter;
 import com.neovisionaries.ws.client.WebSocketFactory;
@@ -37,6 +39,9 @@ public class MessageListActivity extends AppCompatActivity {
     private List<Message> messageList;
     private RecyclerView messageRecycler;
     private MessageListAdapter messageListAdapter;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private Button buttonSignOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,13 @@ public class MessageListActivity extends AppCompatActivity {
         buttonSend = findViewById(R.id.button_chatbox_send);
         messageText = findViewById(R.id.edittext_chatbox);
 
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            Intent intent = new Intent(MessageListActivity.this, NameActivity.class);
+            startActivity(intent);
+        }
+        MyUserDetails.getInstance().setUserName(currentUser.getEmail());
         final String userName = MyUserDetails.getInstance().getUserName();
         WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
 
