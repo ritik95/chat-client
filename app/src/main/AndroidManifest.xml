@@ -32,6 +32,9 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        <activity android:name=".PhoneLogin">
+        </activity>
+        <activity android:name=".NameActivity">
         </activity>
     </application>
 

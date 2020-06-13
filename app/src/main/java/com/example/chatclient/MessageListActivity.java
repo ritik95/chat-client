@@ -54,10 +54,13 @@ public class MessageListActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent = new Intent(MessageListActivity.this, NameActivity.class);
+            Intent intent = new Intent(MessageListActivity.this, PhoneLogin.class);
             startActivity(intent);
+            return;
         }
-        MyUserDetails.getInstance().setUserName(currentUser.getEmail());
+        String uName = currentUser.getDisplayName();
+        MyUserDetails.getInstance().setUserName(uName);
+        MyUserDetails.getInstance().setUserId(currentUser.getUid());
         final String userName = MyUserDetails.getInstance().getUserName();
         WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
 

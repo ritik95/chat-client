@@ -33,5 +33,8 @@ public class Message {
 
         @JsonProperty("profileUrl")
         private String profileUrl;
+
+        @JsonProperty("userId")
+        private String userId;
     }
 }
