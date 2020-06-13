@@ -48,7 +48,6 @@ public class MessageListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
 
-
         buttonSend = findViewById(R.id.button_chatbox_send);
         messageText = findViewById(R.id.edittext_chatbox);
 
