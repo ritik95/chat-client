@@ -8,6 +8,7 @@ public class MyUserDetails {
 
     private static MyUserDetails instance;
     private String userName;
+    private String userId;
 
     public static MyUserDetails getInstance(){
         if (null != instance) return instance;
