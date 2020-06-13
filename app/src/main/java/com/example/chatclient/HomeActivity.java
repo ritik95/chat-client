@@ -84,6 +84,10 @@ public class HomeActivity extends AppCompatActivity {
 //                        Intent i = new Intent(HomeActivity.this, EditProfile.class);
 //                        startActivity(i);
                         break;
+                    case R.id.nav_sign_out:
+                        Intent i = new Intent(HomeActivity.this, PhoneLogin.class);
+                        startActivity(i);
+                        break;
                 }
                 return false;
             }

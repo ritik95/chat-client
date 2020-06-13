@@ -83,6 +83,8 @@ public class MessageListActivity extends AppCompatActivity {
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (messageText.getText().length() == 0)
+                    return;
                 System.out.println("sending message : "+messageText.getText().toString());
                 Message message = ChatUtils.createMessage(userName, messageText.getText().toString());
                 sendMessage(messageText.getText().toString());
