@@ -3,6 +3,7 @@ package com.example.chatclient.utils;
 
 import com.example.chatclient.constants.Constants;
 import com.example.chatclient.model.Message;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 
 public class ChatUtils {
@@ -22,6 +23,7 @@ public class ChatUtils {
         message.setMessage(msg);
         Message.User sender = new Message.User();
         sender.setUserName(user);
+        //sender.setProfileUrl("images/"+ FirebaseAuth.getInstance().getCurrentUser().getUid());
         message.setSender(sender);
         return message;
     }

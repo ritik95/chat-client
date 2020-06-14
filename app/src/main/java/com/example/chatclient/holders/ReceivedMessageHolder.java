@@ -1,5 +1,6 @@
 package com.example.chatclient.holders;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,13 +27,12 @@ public class ReceivedMessageHolder extends RecyclerView.ViewHolder {
         profileImage = itemView.findViewById(R.id.image_message_profile);
     }
 
-    public void bind(Message message){
+    public void bind(Message message, Context mContext){
         System.out.println("converted "+message);
         messageText.setText(message.getMessage());
         timeText.setText(Utils.getFormattedTime(message.getCreatedAt()));
         nameText.setText(message.getSender().getUserName());
 
-        //TODO : add code for display image
-        //Implement here
+       // Utils.displayRoundImageFromUrl(mContext, message.getSender().getProfileUrl(), profileImage);
     }
 }

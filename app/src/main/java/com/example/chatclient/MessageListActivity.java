@@ -94,7 +94,7 @@ public class MessageListActivity extends AppCompatActivity {
         });
 
         messageList = new ArrayList<>();
-        messageListAdapter = new MessageListAdapter(messageList);
+        messageListAdapter = new MessageListAdapter(this, messageList);
         messageRecycler = findViewById(R.id.recylerview_message_list);
         messageRecycler.setLayoutManager(new LinearLayoutManager(this));
         messageRecycler.setAdapter(messageListAdapter);
