@@ -52,7 +52,7 @@ public class MessageListActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent = new Intent(MessageListActivity.this, PhoneLogin.class);
+            Intent intent = new Intent(MessageListActivity.this, PhoneLoginActivity.class);
             startActivity(intent);
             return;
         }
@@ -92,7 +92,7 @@ public class MessageListActivity extends AppCompatActivity {
         });
 
         messageList = new ArrayList<>();
-        messageListAdapter = new MessageListAdapter(messageList);
+        messageListAdapter = new MessageListAdapter(this, messageList);
         messageRecycler = findViewById(R.id.recylerview_message_list);
         messageRecycler.setLayoutManager(new LinearLayoutManager(this));
         messageRecycler.setAdapter(messageListAdapter);

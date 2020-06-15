@@ -1,6 +1,7 @@
 package com.example.chatclient.adapter;
 
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +21,12 @@ import java.util.List;
 
 public class MessageListAdapter extends RecyclerView.Adapter {
 
-    List<Message> messageList;
+    private List<Message> messageList;
+    private Context context;
 
-    public MessageListAdapter(List<Message> messages){
+    public MessageListAdapter(Context context, List<Message> messages){
         this.messageList = messages;
-        System.out.println("message list size "+messages.size());
+        this.context = context;
     }
 
     @NonNull
@@ -59,7 +61,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 ((SentMessageHolder) holder).bind(message);
                 break;
             case Constants.VIEW_TYPE_MESSAGE_RECEIVED:
-                ((ReceivedMessageHolder) holder).bind(message);
+                ((ReceivedMessageHolder) holder).bind(message, context);
                 break;
                 default:
                     ((LeftJoinConversationHolder) holder).bind(message);

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.chatclient.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent = new Intent(MainActivity.this, PhoneLogin.class);
+            Intent intent = new Intent(MainActivity.this, PhoneLoginActivity.class);
             startActivity(intent);
             return;
         }

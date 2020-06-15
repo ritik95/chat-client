@@ -9,6 +9,7 @@ public class MyUserDetails {
     private static MyUserDetails instance;
     private String userName;
     private String userId;
+    private String localProfilePath;
 
     public static MyUserDetails getInstance(){
         if (null != instance) return instance;
