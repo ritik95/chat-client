@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +24,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.concurrent.TimeUnit;
 
-public class PhoneLogin extends AppCompatActivity {
+public class PhoneLoginActivity extends AppCompatActivity {
 
     private EditText phoneNumber;
     private EditText userName;
@@ -86,7 +85,7 @@ public class PhoneLogin extends AppCompatActivity {
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(PhoneLogin.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(PhoneLoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -104,12 +103,12 @@ public class PhoneLogin extends AppCompatActivity {
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential){
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(PhoneLogin.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(PhoneLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             updateUserDetails(userName.getText().toString());
-                            Intent intent = new Intent(PhoneLogin.this, HomeActivity.class);
+                            Intent intent = new Intent(PhoneLoginActivity.this, HomeActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         } else {
@@ -117,7 +116,7 @@ public class PhoneLogin extends AppCompatActivity {
                             if(task.getException() instanceof FirebaseAuthInvalidCredentialsException){
                                 message = "Invalid code entered...";
                             }
-                            Toast.makeText(PhoneLogin.this, message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PhoneLoginActivity.this, message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -54,7 +54,7 @@ public class MessageListActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent = new Intent(MessageListActivity.this, PhoneLogin.class);
+            Intent intent = new Intent(MessageListActivity.this, PhoneLoginActivity.class);
             startActivity(intent);
             return;
         }

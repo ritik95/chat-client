@@ -3,7 +3,11 @@
     package="com.example.chatclient">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -14,12 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".ContactListActivity" android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".MessageListActivity"></activity>
-        <activity android:name=".NameActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MessageListActivity" />
+        <activity android:name=".NameActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhoneLogin"></activity>
+        <activity android:name=".PhoneLoginActivity" />
     </application>
 
 </manifest>

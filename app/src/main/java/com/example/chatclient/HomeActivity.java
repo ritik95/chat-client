@@ -10,13 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.chatclient.config.ChatAppConfig;
 import com.example.chatclient.config.MyUserDetails;
 import com.example.chatclient.utils.Utils;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -36,7 +34,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import java.io.File;
-import java.io.IOException;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent = new Intent(HomeActivity.this, PhoneLogin.class);
+            Intent intent = new Intent(HomeActivity.this, PhoneLoginActivity.class);
             startActivity(intent);
             return;
         }
@@ -64,6 +61,8 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "This will be to start new chat", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent floatButtonIntent = new Intent(HomeActivity.this, ContactListActivity.class);
+                startActivity(floatButtonIntent);
             }
         });
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -72,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
         if(currentUser.getPhotoUrl() != null) {
             try {
                 final File localFile = File.createTempFile("images", "jpg");
-                StorageReference gsReference = FirebaseStorage.getInstance().getReferenceFromUrl(ChatAppConfig.IMAGE_STORAGE_URL + "/" + mAuth.getCurrentUser().getUid());
+                StorageReference gsReference = FirebaseStorage.getInstance().getReferenceFromUrl(ChatAppConfig.IMAGE_STORAGE_URL + "/" + mAuth.getCurrentUser().getPhoneNumber());
 
                 gsReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                     @Override
@@ -123,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_sign_out:
                         FirebaseAuth.getInstance().signOut();
-                        Intent i = new Intent(HomeActivity.this, PhoneLogin.class);
+                        Intent i = new Intent(HomeActivity.this, PhoneLoginActivity.class);
                         startActivity(i);
                         break;
                 }

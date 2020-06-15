@@ -69,7 +69,7 @@ public class EditProfileActivity extends AppCompatActivity {
         if(mUser != null && mUser.getPhotoUrl() != null) {
             try {
                 final File localFile = File.createTempFile("images", "jpg");
-                StorageReference gsReference = FirebaseStorage.getInstance().getReferenceFromUrl(ChatAppConfig.IMAGE_STORAGE_URL + "/" + mAuth.getCurrentUser().getUid());
+                StorageReference gsReference = FirebaseStorage.getInstance().getReferenceFromUrl(ChatAppConfig.IMAGE_STORAGE_URL + "/" + mAuth.getCurrentUser().getPhoneNumber());
 
                 gsReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                     @Override
@@ -134,7 +134,7 @@ public class EditProfileActivity extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference reference = storageReference.child("images/"+ mUser.getUid());
+            StorageReference reference = storageReference.child("images/"+ mUser.getPhoneNumber());
             reference.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -164,7 +164,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void updateProfilePicture(){
         StorageReference sReference = firebaseStorage.getReference();
-        sReference.child("images/"+ mUser.getUid()).getDownloadUrl()
+        sReference.child("images/"+ mUser.getPhoneNumber()).getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
