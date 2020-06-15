@@ -36,8 +36,6 @@
         </activity>
         <activity android:name=".PhoneLogin">
         </activity>
-        <activity android:name=".NameActivity">
-        </activity>
     </application>
 
 </manifest>

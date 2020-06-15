@@ -29,8 +29,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class MessageListActivity extends AppCompatActivity {
 
     private Button buttonSend;
@@ -100,7 +98,6 @@ public class MessageListActivity extends AppCompatActivity {
         messageRecycler.setAdapter(messageListAdapter);
 
     }
-
 
     public void sendMessage(String message) {
         if (webSocket.isOpen()) {

@@ -40,8 +40,9 @@ public class HomeActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent = new Intent(HomeActivity.this, NameActivity.class);
+            Intent intent = new Intent(HomeActivity.this, PhoneLogin.class);
             startActivity(intent);
+            return;
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);

@@ -26,4 +26,5 @@
     <string name="menu_edit_profile">Edit Profile</string>
     <string name="open_chat">Enter Chatroom</string>
     <string name="menu_sign_out">Sign Out</string>
+    <string name="unread_display_image">User Photo</string>
 </resources>
