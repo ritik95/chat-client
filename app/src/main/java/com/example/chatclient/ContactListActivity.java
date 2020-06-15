@@ -94,7 +94,7 @@ public class ContactListActivity extends AppCompatActivity {
         switch (requestCode){
             case PERMISSIONS_REQUEST_READ_CONTACTS:{
                 if(grantResult.length > 0 && grantResult[0] == PackageManager.PERMISSION_GRANTED){
-
+                    getContacts();
                 }else {
                     Toast.makeText(this, "You have disabled a contacts permission", Toast.LENGTH_LONG).show();
                 }
