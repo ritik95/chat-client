@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mobile_navigation"
+        app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.chatclient.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/phoneLoginActivity"
+        android:name="com.example.chatclient.PhoneLoginActivity"
+        android:label="activity_phone_login"
+        tools:layout="@layout/activity_phone_login" />
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.chatclient.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+    <activity
+        android:id="@+id/contactListActivity"
+        android:name="com.example.chatclient.ContactListActivity"
+        android:label="activity_contact_list"
+        tools:layout="@layout/activity_contact_list" />
+    <activity
+        android:id="@+id/editProfileActivity"
+        android:name="com.example.chatclient.EditProfileActivity"
+        android:label="activity_edit_profile"
+        tools:layout="@layout/activity_edit_profile" />
+    <activity
+        android:id="@+id/messageListActivity"
+        android:name="com.example.chatclient.MessageListActivity"
+        android:label="activity_message_list"
+        tools:layout="@layout/activity_message_list" />
+</navigation>
